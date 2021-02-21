@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../blog_laravel/.idea/blog_laravel.iml" filepath="$PROJECT_DIR$/../blog_laravel/.idea/blog_laravel.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/stroimaster.iml" filepath="$PROJECT_DIR$/.idea/stroimaster.iml" />
     </modules>
   </component>
