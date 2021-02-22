@@ -5,24 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Page extends Model
+class Service extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function services()
+    public function page()
     {
-        return $this->hasMany(Service::class);
+        return $this->belongsTo(Page::class);
     }
 
-    public static function menu()
+    public static function services()
     {
         return self::all();
     }
 
-    public static function pageShow($view)
+    public function getRouteKeyName()
     {
-        return self::where('slug', $view)->first();
+        return 'slug';
     }
 }

@@ -1,8 +1,8 @@
 <head>
     <meta charset="UTF-8">
-    <title>СтройМастер</title>
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <title>@yield('title')</title>
+    <meta name="keywords" content="@yield('keywords')" />
+    <meta name="description" content="@yield('description')" />
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}"/>
