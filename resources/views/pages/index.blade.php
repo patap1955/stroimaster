@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title', $page->title)
-@section('description', $page->description)
-@section('keywords', $page->keywords)
+@section('title', 'Главная')
+@section('description', 'Главная страница')
+@section('keywords', 'Главная страница')
 @section('content')
                 <main class="col-xs-12" role="main">
                     <div class="row">

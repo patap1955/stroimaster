@@ -5,7 +5,7 @@
 
                 @foreach($pages as $page)
                     <li id="menu-item" class="menu-item-type-post_type menu-item-object-page menu-item">
-                        <a href="{{$page->services()->count() ? '#' : route($page->slug) }}">{{ $page->title }}</a>
+                        <a href="{{$page->services()->count() ? '#' : route($page->slug)}}">{{ $page->title }}</a>
                         @if($page->services()->count())
                             <ul  class="sub-menu">
                                 @foreach($services as $service)
