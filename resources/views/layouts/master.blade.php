@@ -14,6 +14,7 @@
 <div class="master-container">
     <div class="container">
         <div class="row">
+            @include('layouts.message_success')
             @yield('content')
         </div>
     </div>

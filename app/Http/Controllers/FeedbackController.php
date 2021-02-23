@@ -39,4 +39,19 @@ class FeedbackController extends Controller
 
         return redirect()->back();
     }
+
+    public function storeTel(Request $request)
+    {
+        $validate = $request->validate([
+            'name'  => 'required|min:5|max:100',
+            'tel'  => 'required',
+        ]);
+        $validate['type'] = 'Заказ на звонок';
+
+        session()->flash('success', 'Ваше сообщение успешно отправленно.В ближайшее время с Вами свяжется наш Сотрудник');
+
+        Feedback::create($validate);
+
+        return redirect()->back();
+    }
 }

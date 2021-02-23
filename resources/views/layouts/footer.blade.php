@@ -15,22 +15,21 @@
                 <div class="col-xs-12  col-md-4"><div class="widget  widget_nav_menu  push-down-30">
                         <h6 class="footer__headings">Меню</h6>
                         <div class="menu-top-menu-container">
-                            <ul id="menu-top-menu-1" class="menu">
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-496">
-                                    <a href="#">Главная</a>
+                            <ul>
+                            @foreach($pages as $page)
+                                <li id="menu-item" class="menu-item-type-post_type menu-item-object-page menu-item">
+                                    <a href="{{$page->services()->count() ? '#' : route($page->slug) }}">{{ $page->title }}</a>
+                                    @if($page->services()->count())
+                                        <ul  class="sub-menu">
+                                            @foreach($services as $service)
+                                                <li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item">
+                                                    <a href="{{ route('service.show', ['service' => $service->slug]) }}">{{ $service->title }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
                                 </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-496">
-                                    <a href="#">О нас</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-496">
-                                    <a href="#">Контакты</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-496">
-                                    <a href="#">Галерея</a>
-                                </li>
-                                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-496">
-                                    <a href="#">Прайс-лист</a>
-                                </li>
+                            @endforeach
                             </ul>
                         </div>
                     </div>
@@ -39,18 +38,17 @@
                     <div class="widget  widget_text  push-down-30">
                         <h6 class="footer__headings">Заказать звонок</h6>
                         <div class="textwidget">
-                            <form role="form" method="post" action="/index.php">
+                            <form role="form" method="post" action="{{ route('feedback.tel.store') }}">
+                                @csrf
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Ваше имя</label>
                                     <input name="name" type="text" class="form-control" placeholder="Введите имя">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Ваш телефон</label>
-                                    <input name="phone" type="tel" class="form-control" placeholder="Введите телефон">
+                                    <input name="tel" type="tel" class="form-control" placeholder="Введите телефон">
                                 </div>
-                                <input name="type" type="hidden" value="Заказ на звонок">
-                                <input name="date" type="hidden" value="">
-                                <button name="orderBell" type="submit" class="btn btn-primary">Отправить</button>
+                                <button type="submit" class="btn btn-primary">Отправить</button>
                             </form>
                             <div id="infoBlok"></div>
                         </div>

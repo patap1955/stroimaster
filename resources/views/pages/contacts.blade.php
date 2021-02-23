@@ -28,21 +28,9 @@
                         <div class="col-lg-9">
                             <div id="pl-2573" class="panel-layout">
                                 <p><strong>Контактная форма</strong></p>
-                                @if(session()->has('success'))
-                                    <div class="alert alert-success alert-dismissable">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        {{ session()->pull('success') }}
-                                    </div>
-                                @endif
+                                @include('layouts.message_success')
                                 <form class="form-horizontal" role="form" method="post" action="{{ route('feedback.contact.store') }}">
-                                    @if($errors->count())
-                                        <div class="alert alert-warning alert-dismissable">
-                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                            @foreach($errors->all() as $error)
-                                                <li>{{$error}}</li>
-                                            @endforeach
-                                        </div>
-                                    @endif
+                                    @include('layouts.message_error')
                                     @csrf
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-sm-2 control-label">Ваше имя</label>

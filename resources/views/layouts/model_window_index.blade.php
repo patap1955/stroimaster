@@ -5,6 +5,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Форма заказа</h4>
             </div>
+            @include('layouts.message_error')
             <div class="modal-body">
                 <form role="form" method="post" action="{{ route('feedback.order.store') }}">
                     @csrf
